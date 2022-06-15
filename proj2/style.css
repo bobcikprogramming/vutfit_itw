@@ -1,0 +1,1056 @@
+/** Základní nastavení */
+* {
+    font-family: Ubuntu, Helvetica, sans-serif;
+}
+
+/* Nastavení zvýraznění textu při výběru */
+::selection {
+    background: #4ca9c8;
+    color: white;
+  }
+
+/* Nastavení plynulého přechodu a kotvy */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 58px; 
+}
+
+/* Nastavení maximální šířky obsahu stránky */
+.content {
+    max-width: 1600px;
+}
+
+/** 
+* Nastavení nadpisu úrovně H1 
+* Vycentrován
+* Všechna písmena velkým
+* Velikost a barva fontu
+*/
+h1 {
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 40px;
+    color: #4ca9c8;
+}
+
+/* Deaktivování defaultního stylu elementu <a> */
+a {
+    text-decoration: none;
+}
+
+body {
+    margin: 0;
+}
+
+/* Nastavení každé sudé sekce */
+section:nth-of-type(even):not(#title){
+    border-top: #4ca9c8 dashed 1px;
+}
+
+/* Nastavení každé liché sekce */
+section:nth-of-type(odd){
+    background-color: #f7f7f7;
+    border-top: #4ca9c8 dashed 1px;
+}
+
+/* Nastavení pozadí zápatí */
+footer { 
+    background-color: #4ca9c8;
+}
+/** ----------------------- */
+
+
+/** Nastavení pro výchozí (nejmenší) velist stránky */
+p {
+    font-size: 18px;
+}
+
+/* Nastavení textu zápatí */
+footer p {
+    color: white;
+    margin: 0;
+    padding: 19px 0;
+    font-size: 15px;
+    text-align: center;
+}
+
+/**
+* Nastavení menu navigace
+* position: sticky - menu bude vždy přístupné při scrollování
+* top: 0 - menu bude při horní části stránky
+* z-index: 2 - menu je posunuto nad obsah (překrývá jej)
+* Nastavení výšky, šířky a pozadí
+*/
+#navbar {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    height: 60px;
+    width: 100%;
+    background-color: #4ca9c8;
+}
+
+/* Rozložení položek menu */
+#menu {
+    height: 100%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: auto 1fr 1fr 1fr 1fr 1fr;
+}
+
+/* Nejmenší zobrazení nemá textové menu, dojde tedy ke schování textu */
+#menu a p {
+    display: none;
+}
+
+/* Nejmenší zobrazení má menu pomocí ikon, dojde tedy k zobrazení ikon */
+#menu a i {
+    display: block;
+}
+
+/* Nastavení domovského tlačítka menu */
+#menu #menu_title{
+    font-size: 22px;
+    margin-bottom: auto;
+    padding: 0 20px;
+}
+
+/* Nastavení najetí na domovské tlačítko menu */
+#menu #menu_title:hover {
+    font-size: 26px;
+}
+
+/* Mezera mezi domovským tlačítkem a zbytkem menu */
+#menu a:nth-of-type(2){
+    grid-column-start: 3;
+}
+
+/* Nastavení tlačítek menu */
+#menu a{
+    margin: auto;
+    color: white;
+    text-align: center;
+}
+
+/* Nastavení ikonových tlačítek menu */
+#menu a i {
+    font-size: 20px;
+}
+
+/* Nastavení najetí na ikonové tlačítka menu */
+#menu a i:hover {
+    font-size: 24px;
+}
+
+/**
+* Nastavení záhlaví stránky
+* Výška obpovídá viewpointu
+* position: relative - nutné pro následující využití position: absolute
+*/
+#title {
+    height: 100vh;
+    min-height: 700px;
+    position: relative;
+}
+
+/**
+* Rozložení záhlaví pomocí grid
+* Posunutí obsahu o 20vh pomocí position: absotule
+* Mezera mezi řádky 20px
+*/
+#title_wrapper {
+    width: 100%;
+    position: absolute;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+                'image'
+                'text';
+    top: 20vh;
+    row-gap: 20px;
+}
+
+/* Vystředění obsahu */
+#title_wrapper > div {
+    margin: auto;
+}
+
+#title p {
+    line-height: 20px;
+}
+
+/* Nastavení odsazení, velikosti a barvy fontu pro jednotlivé texty záhlaví */
+#title p:nth-of-type(1) {
+    font-size: 20px;
+    margin-left: 125px;
+    color: #40b7dd;
+}
+
+#title p:nth-of-type(2) {
+    font-size: 26px;
+    margin-left: 55px;
+    color: #25a6d0;
+}
+
+#title p:nth-of-type(3) {
+    font-size: 32px;
+    margin-left: 85px;
+    color: #0e9bc8;
+}
+
+#title p:nth-of-type(4) {
+    font-size: 38px;
+    margin-left: 130px;
+    color: #0c84ac;
+}
+
+#title p:nth-of-type(5) {
+    font-size: 20px;
+    line-height: unset;
+    margin-bottom: 10px;
+    margin-left: 25px;
+    color: #0c84ac;
+}
+
+#title a {
+    font-size: 32px;
+    line-height: unset;
+    margin-left: 25px;
+    color: #145A73;
+    font-weight: bold;
+}
+
+#title a:hover {
+    color: #0c84ac;
+}
+/* ------------------ */
+
+/**
+* Nastavení obrázku
+* Velikosti
+* Umístění v gridu
+* Zarovnání na střed
+*/ 
+#rocket {
+    grid-area: image;
+    margin: auto;
+    height: 150px;
+}  
+
+/* Nastavení rozložení sekce about */
+#about .content div {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+                'image'
+                'text';
+    padding-bottom: 25px;
+}
+
+/**
+* Nastavení obrázku avatar v sekci about
+* Velikost
+* Umístění v gridu
+* Vystředění
+* Spodní výplně
+* Čas animace
+*/
+#about #avatar {
+    height: 200px;
+    grid-area: image;
+    margin: auto;
+    padding-bottom: 25px;
+    transition: 0.5s;
+}
+
+/* Změna velikosti obrázku avatar po najetí */
+#about #avatar:hover {
+    height: 250px;
+}
+
+/** 
+* Nastavení textu about
+* Boční odsazení
+* Vertikální vystředění pomocí flex
+*/
+#about p {
+    margin-left: 50px;
+    margin-right: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: justify;
+}
+
+/**
+* Nastavení jednotlivých univerzit
+* Zobrazení pomocí grid
+*/
+#education .container {
+    display: grid;
+    grid-template-columns: min-content max-content;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-left: 25px;
+}
+
+#education .container h2 {
+    margin-bottom: 5px;
+    margin-top: 11px;
+}
+
+#education .container a {
+    color: #0e9bc8;
+    font-weight: bold;
+    font-size: 19px;
+}
+
+#education .container a:hover {
+    color: #145A73;
+}
+
+#education .container p {
+    margin-top: 0;
+    color: #555555;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+#education img {
+    height: 65px;
+    margin: auto;
+    margin-right: 15px;
+}
+
+/* Nastavení textu sekce innovation */
+#innovation p {
+    text-align: justify;
+    margin: 0 50px;
+}
+
+/* Nastavení textu prvního odstavce */
+#innovation p:first-of-type {
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+
+/* Nastavení textu posledního odstavce */
+#innovation p:last-of-type {
+    padding-bottom: 50px;
+}
+
+/* Rozložení tlačítek v sekci projects */
+#projects .content > div:first-of-type {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+/* Nastavení základní (nezvolené barvy) tlačítka (nadpisu H2) */
+#projects h2 {
+    color: gray;
+    margin: auto;
+    font-size: 25px;
+}
+
+/* Změna typu kurzoru při najetí na tlačítko */
+#projects h2:hover {
+    cursor: pointer;
+}
+
+/* Nastavení prvního tlačítka (nadpisu H2) na barvu zvoleného tlačítka */
+#projects h2:first-of-type {
+    color: #0c84ac;
+}
+
+/* Rozložení podsekce electroplane */
+#electroplane > div {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+                'image'
+                'text';
+    margin-top: 50px;
+    margin-bottom: 25px;
+    margin-left: 0;
+}
+
+/* Nastavení obrázků electroplane a rockettruck*/
+#electroplane img, #rockettruck img{
+    height: 150px;
+    grid-area: image;
+    margin: auto;
+    padding-bottom: 25px;
+}
+
+/* Nastavení elementu <div> obsahující textový obsah podsekcí na zobrazení pomocí block */
+#electroplane > div > div, #rockettruck > div > div{
+    padding: 0;
+    display: block;
+}
+
+/* Nastavení textu podsekcí electroplane a rockettruck */
+#electroplane p, #rockettruck p{
+    width: 100%;
+    margin: 10px 0;
+    text-align: center;
+}
+
+/* Obdobné nastavení podsekce jako nastavení podsekce electroplane */
+#rockettruck > div {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+                'image'
+                'text';
+    margin-top: 50px;
+    margin-bottom: 25px;
+    margin-right: 0;
+}
+/* ------------------ */
+/** ----------------- */
+
+/** Nastavení pro rozlišení do minimální šířky 576px */
+@media screen and (min-width: 576px) {
+    /* Změna použité velikosti písma elementu <p> */
+    p {
+        font-size: 22px;
+    }
+
+    /* Změna odsazení a velikosti písma jednotlivých textů záhlaví */
+    #title p:nth-of-type(1) {
+        font-size: 32px;
+        margin-left: 266px;
+    }
+    
+    #title p:nth-of-type(2) {
+        font-size: 38px;
+        margin-left: 116px;
+    }
+    
+    #title p:nth-of-type(3) {
+        font-size: 44px;
+        margin-left: 191px;
+    }
+    
+    #title p:nth-of-type(4) {
+        font-size: 50px;
+        margin-left: 229px;
+    }
+
+    #title p:nth-of-type(5) {
+        font-size: 32px;
+        margin-left: 56px;
+    }
+
+    #title a {
+        font-size: 44px;
+        margin-left: 56px;
+    }
+
+    /* ------------------- */
+    
+    /* Změna velikosti obrázku v záhlaví */
+    #rocket {
+        height: 175px;
+    }  
+
+    /* Změna odsazení nadpisu vzdělání */
+    #education .container h2 {
+        margin-top: 22.5px;
+    }
+
+    /* Změna velikosti textu vzdělání */
+    #education .container a {
+        font-size: 24px;
+    }
+
+    #education .container p {
+        font-size: 20px;
+    }
+    /* ----------------- */
+    
+    /* Změna velikosti loga univerzit */
+    #education img {
+        height: 100px;
+    }
+
+    /* Změna odsazení jednotlivých univerzit */
+    #education .container:nth-of-type(1){
+        margin-left: 60px;
+    }
+    
+    #education .container:nth-of-type(2){
+        margin-left: 92px;
+    }
+    
+    #education .container:nth-of-type(3){
+        margin-left: 124px;
+    }
+    /* ------------------- */
+
+    /* Změna velikosti tlačítka (nadpisu H2) sekce projects */
+    #projects h2 {
+        font-size: 30px;
+    }
+
+    /* Změna odsazení textu podsekcí electroplane a rockettruck */
+    #electroplane p, #rockettruck p{
+        margin: 15px 0;
+    }
+
+}
+/** ------------------ */
+
+/** Nastavení pro rozlišení do minimální šířky 768px */
+@media screen and (min-width: 768px) {
+    /* Změna zobrazení menu, menu již využívá text, nikoliv ikony - skrytí ikon */
+    #menu a i {
+        display: none;
+    }
+    
+    /* Zobrazení textu v menu */
+    #menu a p {
+        display: unset;
+        font-size: 22px;
+    }
+
+    #menu a p:hover {
+        font-size: 26px;
+    }
+    /* --------------------- */
+
+    /* Změna velikosti textu domovského tlačítka */
+    #menu #menu_title{
+        font-size: 29px;
+    }
+    
+    #menu #menu_title:hover {
+        font-size: 33px;
+    }
+    /* ---------------------- */
+
+    /* Změna odsazení, mezery mezi řádky a velikosti textu záhlaví */
+    #title p {
+        line-height: 20px;
+    }
+
+    #title p:nth-of-type(1) {
+        font-size: 32px;
+        margin-left: 355px;
+    }
+    
+    #title p:nth-of-type(2) {
+        font-size: 38px;
+        margin-left: 155px;
+    }
+    
+    #title p:nth-of-type(3) {
+        font-size: 44px;
+        margin-left: 255px;
+    }
+    
+    #title p:nth-of-type(4) {
+        font-size: 50px;
+        margin-left: 305px;
+    }
+
+    #title p:nth-of-type(5) {
+        font-size: 32px;
+        margin-left: 75px;
+    }
+
+    #title a {
+        font-size: 44px;
+        margin-left: 75px;
+    }
+    /* ----------------------- */
+
+    /* Změna velikosti obrázku záhlaví */
+    #rocket {
+        height: 200px;
+    }  
+
+    /* Změna uspořádání sekce about */
+    #about .content div {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        margin-left: 75px;
+        margin-top: 75px;
+        padding-bottom: 75px;
+    }
+
+    /* Změna velikosti obrázku avatar a zrušení umístění v grid pomocí area */
+    #about #avatar {
+        height: 200px;
+        grid-area: unset;
+        padding-bottom: 0;
+    }
+
+    /* Změna velikosti obrázku avatar po najetí */
+    #about #avatar:hover {
+        height: 250px;
+    }
+
+    /* Změna vertikální odsazení univerzit */
+    #education .container {
+        margin-top: 75px;
+        margin-bottom: 75px;
+    }
+
+    /* Změna velikosti textu */
+    #education .container h2 {
+        margin-top: 22px;
+    }
+    
+    #education .container a {
+        font-size: 28px;
+    }
+
+    #education .container p {
+        font-size: 20px;
+    }
+    /* ------------------ */
+
+    /* Změna velikosti loga univerzit */
+    #education img {
+        height: 100px;
+    }
+
+    /* Změna horizontálního odsazení jednotlivých univerzit */
+    #education .container:nth-of-type(1){
+        margin-left: 75px;
+    }
+
+    #education .container:nth-of-type(2){
+        margin-left: 115px;
+    }
+
+    #education .container:nth-of-type(3){
+        margin-left: 155px;
+    }
+    /* ------------------- */
+
+    /* Změna odsazení v sekci innovation */
+    #innovation p {
+        margin: 0 75px;
+    }
+
+    #innovation p:first-of-type {
+        margin-top: 75px;
+        margin-bottom: 30px;
+    }
+
+    #innovation p:last-of-type {
+        padding-bottom: 75px;
+    }
+    /* ------------------ */
+
+    /* Změna uspořádání podsekce electroplane */
+    #electroplane > div {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        margin-left: 75px;
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+    
+    /* Změna uspořádání textu podsekce electropane (text je vertikálně vystředěn pomocí flex) */
+    #electroplane > div > div{
+        padding: 15px 60px;
+        padding-right: 0;
+        gap: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    /* Změna velikosti obrázků electroplane a rockettruck, deaktivování umístnění v grid pomocí area*/
+    #electroplane img, #rockettruck img {
+        height: 150px;
+        padding-bottom: 0;
+        grid-area: unset;
+    }
+
+    /* Změna odsazení textu electroplane */
+    #electroplane p{
+        margin: 10px 0;
+        text-align: left;
+    }
+
+    /* Změna uspořádání podsekce rockettruck */
+    #rockettruck > div {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        margin-right: 75px;
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+    
+    /* Změna uspořádání textu podsekce rockettruck (text je vertikálně vystředěn pomocí flex) */
+    #rockettruck > div > div{
+        padding: 15px 60px;
+        padding-left: 0;
+        gap: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    /* Změna odsazení textu rockettruck */
+    #rockettruck p{
+        margin: 10px 0;
+        text-align: right;
+    }
+
+    /* Změna velikosti textu zápatí */
+    footer p {
+        font-size: 17px;
+    }
+}
+/** ---------------------- */
+
+/** Nastavení pro rozlišení do minimální šířky 900px */
+@media only screen and (min-width: 900px) {
+    /** 
+    * Změna zobrazení menu. Přechod menu z horní části stránky na levou část
+    * Výška zabírá celou výšku viewpointu
+    * Menu je vždy dostupné, tedy position fixes
+    * Šířka zabírá pouze 250px
+    * z-index již není potřeba explicitně nastavovat
+    */ 
+    #navbar {
+        position: fixed;
+        height: 100vh;
+        width: 250px;
+        background-color: #4ca9c8;
+        z-index: unset;
+    }
+
+    #menu {
+        position: absolute;
+        top: 40%;
+        display: grid;
+        row-gap: 10px;
+        grid-template-columns: 250px;
+        height: auto;
+    }
+    /* ------------------------ */
+
+    /* Zrušení horizontální mezery mezi domovkým tlačítkem a zbytkem menu */
+    #menu a:nth-of-type(2){
+        grid-column-start: unset;
+    }
+
+    /* Nastavení textu menu */
+    #menu a {
+        width: 100%;
+        color: white;
+        text-align: center;
+    }
+
+    #menu a p{
+        font-size: 28px;
+    }
+
+    #menu #menu_title {
+        font-size: 38px;
+        margin-bottom: 10px;
+        padding: 0;
+    }
+
+    #menu #menu_title:hover{
+        font-size: 43px;
+    }
+
+    #menu a p:hover{
+        font-size: 33px;
+    }
+    /* ------------------- */
+
+    /* Nastavení odsazení velikosti menu zbylého obsahu stránky */
+    section, header, footer {
+        margin-left: 250px;
+    }
+
+    /* Přeuspořádání záhlaví */
+    #title_wrapper {
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+                    'image'
+                    'text';
+    }
+
+    #title p:nth-of-type(1) {
+        font-size: 32px;
+        margin-left: 275px;
+    }
+    
+    #title p:nth-of-type(2) {
+        font-size: 38px;
+        margin-left: 75px;
+    }
+    
+    #title p:nth-of-type(3) {
+        font-size: 44px;
+        margin-left: 175px;
+    }
+    
+    #title p:nth-of-type(4) {
+        font-size: 50px;
+        margin-left: 225px;
+    }
+
+    #rocket {
+        grid-area: image;
+        margin: auto;
+        height: 200px;
+    }
+    /* ------------------- */
+
+    /* Přeuspořádání about */
+    #about .content div {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+                    'image'
+                    'text';
+        margin-right: 75px;
+    }
+
+    #about #avatar {
+        height: 200px;
+        grid-area: image;
+        margin: auto;
+        padding-bottom: 25px;
+    }
+
+    #about #avatar:hover {
+        height: 250px;
+    }
+    /* ------------------- */
+
+    /* Přeuspořádání education */
+    #education .container:nth-of-type(1){
+        display: grid;
+        grid-template-columns: min-content max-content;
+        margin-left: 75px;
+    }
+    
+    #education .container:nth-of-type(2){
+        display: grid;
+        grid-template-columns: min-content max-content;
+        margin-left: 115px;
+    }
+    
+    #education .container:nth-of-type(3){
+        display: grid;
+        grid-template-columns: min-content max-content;
+        margin-left: 155px;
+    }
+    /* ------------------- */
+    
+    /* Přeuspořádání podsekcí electroplane a rockettruck */
+    #electroplane > div {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+                    'image'
+                    'text';
+        margin-left: 0;
+        margin-bottom: 50px;
+    }
+
+    #electroplane img, #rockettruck img{
+        height: 200px;
+        grid-area: image;
+        margin: auto;
+        padding-bottom: 25px;
+    }
+
+    #electroplane > div > div, #rockettruck > div > div {
+        display: block;
+        padding: 0;
+    }
+    
+    #electroplane p, #rockettruck p {
+        text-align: center;
+    }
+
+    #rockettruck > div {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+                    'image'
+                    'text';
+        margin-right: 0;
+        margin-bottom: 50px;
+    }
+    /* ------------------- */
+}
+/** ------------------- */
+
+/** Nastavení pro rozlišení do minimální šířky 1200px */
+@media screen and (min-width: 1200px) {
+    /* Změna uspořádání záhlaví */
+    #title_wrapper {
+        width: 100%;
+        max-width: 1600px;
+        position: absolute;
+        display: grid;
+        grid-template-columns: 1.5fr 1fr;
+        top: 28vh;
+    }
+
+    /* Změna velikosti obrázku (responziví dle šířky okna do 500px) */
+    #rocket {
+        grid-area: unset;
+        height: 25vw;
+        max-height: 500px;
+    }
+
+    /* Změna uspořádání sekce about */
+    #about .content div {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        margin-left: 75px;
+        margin-top: 75px;
+        padding-bottom: 75px;
+    }
+
+    #about #avatar {
+        height: 250px;
+        grid-area: unset;
+        padding-bottom: 0;
+    }
+    
+    #about #avatar:hover {
+        height: 300px;
+    }
+    /* ---------------- */
+
+    /* Změna uspořádání sekce education */
+    #education .container:nth-of-type(1){
+        margin-left: 75px;
+    }
+
+    #education .container:nth-of-type(2){
+        margin-left: 125px;
+    }
+
+    #education .container:nth-of-type(3){
+        margin-left: 175px;
+    }
+    /* ---------------- */
+
+
+    /* Změna uspořádání podsekcí electroplane a rockettruck */
+    #electroplane > div {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        margin-left: 75px;
+        margin-top: 75px;
+        margin-bottom: 75px;
+    }
+
+    #electroplane > div > div {
+        padding: 15px 60px;
+        padding-right: 0;
+        gap: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    
+    #electroplane img, #rockettruck img{
+        height: 200px;
+        grid-area: unset;
+        padding-bottom: 0;
+    }
+    
+    #electroplane p{
+        margin: 0;
+        text-align: left;
+    }
+
+    #rockettruck > div {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        margin-right: 75px;
+        margin-top: 75px;
+        margin-bottom: 75px;
+    }
+
+    #rockettruck > div > div {
+        padding: 15px 60px;
+        padding-left: 0;
+        gap: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    #rockettruck p{
+        margin: 0;
+        text-align: right;
+    }
+    /* ---------------- */
+}
+/** ---------------- */
+
+/** Nastavení pro rozlišení do minimální šířky 1472px */
+@media screen and (min-width: 1472px) {
+    /* Změna velikosti a odsazení textu záhlaví */
+    #title p:nth-of-type(1) {
+        font-size: 40px;
+        margin-left: 275px;
+    }
+
+    #title p:nth-of-type(2) {
+        font-size: 52px;
+        margin-left: 75px;
+    }
+
+    #title p:nth-of-type(3) {
+        font-size: 64px;
+        margin-left: 175px;
+    }
+
+    #title p:nth-of-type(4) {
+        font-size: 76px;
+        margin-left: 225px;
+    }
+
+    #title p:nth-of-type(5) {
+        font-size: 40px;
+        margin-left: 75px;
+    }
+
+    #title a {
+        font-size: 52px;
+        margin-left: 75px;
+    }
+    /* --------------- */
+
+    /* Změna velikosti obrázků electroplane a rockettruck */
+    #electroplane img, #rockettruck img {
+        height: 250px;
+    }
+
+    /* Změna výplně sekcí electroplane a rockettruck */
+    #electroplane > div > div{
+        padding: 40px 60px;
+        padding-right: 0;
+    }
+
+    #rockettruck > div > div{
+        padding: 40px 60px;
+        padding-left: 0;
+    }
+    /* ---------------- */
+}
+/* ---------------- */

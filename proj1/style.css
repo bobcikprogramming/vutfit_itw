@@ -1,0 +1,943 @@
+/*
+ * Login: xbobci03
+ *
+ * Doplnte sve reseni.
+ *
+ * Nezapomente pridat strucne hromadne komentare pro pravidla jednotlivych sekci
+ * a pro netrivialni useky kodu (napr. bubliny v sekci #refs)
+ */
+
+/** Základní nastavení stránky včetně sdílených vlastností */
+/* Plynulý přechod na části stránky pomocí odkazu. */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Nastavení barvy zvýraznění. */
+::selection {
+    background: #7D9446;
+    color: white;
+  }
+
+body {
+    margin: 0;
+    min-width: 768px;
+    font-family: 'PT Sans';
+}
+
+.content {
+    width: auto;
+    max-width: 1200px;
+    margin: 0 auto;
+} 
+
+header, .content, footer {
+    box-sizing: border-box;
+    padding: 0 20px;
+}
+
+section {
+    margin-top: 60px;
+    margin-bottom: 80px;
+}
+
+h3 {
+    font-size: 24px;
+}
+
+p, td {
+    line-height: 1.7;
+}
+
+a {
+    color: #4682B4;
+    text-decoration: none;
+    cursor: auto;
+}
+
+/* Změna barvy textu značky <a> po najetí myší. */
+a:hover {
+    color: white;
+}
+
+h4, .h4 {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.content {
+    height: 100%;
+}
+
+.content p {
+    text-align: center;
+    color: #898989;
+    font-size: 18px;
+}
+/** Konec základního nastavení */
+
+/*
+ * Nastavení hlavičky 
+ * Nastavení velikosti pozadí, menu, uspořádání a reakcí při najetí na položku.
+ */
+
+/* Nastavení obrázku jako pozadí. Jeho velikosti a umístnění. */
+#header {
+    min-height: 400px;
+    height: 100vh;
+    background-image: url("../img/header.jpg");
+    background-position: 60% 55%;
+    background-size: cover;
+    /*box-sizing: border-box;*/
+}
+
+#header-menu {
+    padding-top: 10px;
+    height: 33%;
+}
+
+/* Rozmístnění položek v horní části webu (nad menu). */
+#logo, #contacts {
+    display: inline-block;
+    width: 50%;
+}
+
+#contacts {
+    float: right;
+    text-align: right;
+}
+/* ------------------------------------------------- */
+
+#logo {
+    font-size: 25px;
+    color: steelblue;
+}
+
+#logo a{
+    font-family: 'Special Elite';
+    margin-left: 3px;
+}
+
+#phone {
+    color: #898989;
+}
+
+#phone i {
+    color: steelblue;
+    margin-right: 5px;
+}
+
+#mail a {
+    color: #898989;
+}
+
+#mail a:hover {
+    color: white;
+}
+
+#mail i {
+    color: steelblue;
+    margin-right: 5px;
+    margin-left: 10px;
+}
+
+/* Rozmístnění položek v horní části webu (menu). */
+#navigation, #networks {
+    display: inline-block;
+}
+
+#networks {
+    text-align: right;
+    float: right;
+    font-size: 25px;
+    padding-top: 10px;
+}
+/* ------------------------------------------------- */
+
+#networks span {
+    margin-left: 10px;
+}
+
+/* Nastavení položek menu.
+   transition - nastavení doby animace (:hover).
+ */
+#navigation li {
+    display: table-cell;
+    padding: 5px 15px;
+    border: 1px solid;
+    color: rgba(0, 0, 0, 0.0);
+    transition: color 0.5s ease-out 100ms
+}
+
+/* Změna barvy textu položky menu po najetí kurzoru myši. */
+#navigation li:hover {
+    color: steelblue;
+}
+
+/* list-style-type:none pro vypnutí základního stylu položky menu. */
+#navigation ul {
+    padding: 0;
+    list-style-type: none; /* TODO otestovat */
+}
+
+/* letter-spacing - nastavení mezery mezi písmeny. */
+#navigation a {
+    font-size: 13px;
+    letter-spacing: .05em;
+    color: #bfbfbf;
+    text-transform: uppercase;
+}
+
+#header-title h1{
+    font-size: 64px;
+    margin-bottom: 20px;
+    color: white;
+}
+
+/* Nastavení tlačítka "Get started"
+   Nastavení hranice (border).
+   Nastavení času animace změny pozadí tlačítka (transition).
+*/
+#get-started a{
+    display: inline-block;
+    font-size: large;
+    padding: 20px;
+    border: 2px solid #4d4d4d;
+    border-radius: 15px;
+    background-color: rgba(0, 0, 0, 0.0);
+    color: #898989;
+    transition: background-color 0.5s ease-out 100ms;
+}
+
+/* Nastavení pozadí tlačítka a textu po najetí myší. */
+#get-started a:hover {
+    background-color: steelblue;
+    border-color: steelblue;
+    color: white;
+    font-weight: bold;
+}
+/** Konec nastavení hlavičky */
+
+/*
+ * Nastavení sekce services
+ * Nastavení velikosti písma nadpisů úrovně 2.
+ * Nastavení odsazení textu.
+ * Nastevení karet.
+ * Nastavení rozložení karet na stránce pomocí grid.
+ */
+#services h2 {
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 40px;
+}
+
+#services .content > p {
+    margin: 0 20px 20px;
+}
+
+/* 
+   Rozložení karet na stránce pomocí grid.
+   grid-template-columns: nastavení způsobu rozložení (dva sloupce na řádek o velikosti 300px).
+   justify-center: zarovnání karet na střed stránky.
+ */
+#services .content > div {
+    display: grid;
+    gap: 40px;
+    grid-template-columns: 300px 300px;
+    padding: 10px;
+    justify-content: center;
+}
+
+/* Nastavení karty:
+   Hranice (border).
+   Zaoblení ohraničení (border-radius).
+   Doba animace (transition).
+   Stín: box-shadow (RGB: black, průhlednost: 0.4).
+*/
+.services-card {
+    box-shadow: 0 4px 10px 0 rgba(0,0,0,0.4);
+    transition: 0.5s;
+    box-sizing: border-box;
+    height: auto;
+    padding: 20px 20px 5px;
+    border-radius: 5px;
+}
+
+/* Změna stínu karty po najetí myší na kartu. */
+.services-card:hover {
+    box-shadow: 0 8px 16px 0 steelblue;
+}
+
+/* Změna barvy nadpisu v kartě po najetí myší na kartu. */
+.services-card:hover h3{
+    color:steelblue;
+}
+
+/* Nastavení obrázku v kartě: 
+   Nastavení jeho velikosti na 50px.
+   Nastavení ohraničení.
+   Nastavení zaoblení ohraničení.
+   Vertikální vycetrování (margin-left/right auto).
+*/
+.services-card img {
+    height: 50px;
+    width: 50px;
+    padding: 5px;
+    border: 1px solid steelblue;
+    border-radius: 5px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Schování druhého obrázku v pořadí. */
+.services-card img:nth-of-type(2) {
+    display: none;
+}
+
+/* Schování prvního obrázku v pořadí při najetí myší na kartu. */
+.services-card:hover img {
+    display: none;
+}
+
+/* Nastavení druhého obrázku v pořadí při najetí myší na kartu. */
+.services-card:hover img:nth-of-type(2) {
+    height: 50px;
+    width: 50px;
+    padding: 5px;
+    border: 1px solid steelblue;
+    border-radius: 5px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: steelblue;
+}
+
+.services-card h3 {
+    text-align: center;
+    font-weight: bold;
+}
+
+.services-card p {
+    text-align: center;
+    color: #bfbfbf;
+    font-size: 14px;
+}
+/** Konec nastavení sekce services */
+
+/*
+ * Nastavení sekce about 
+ * Nastavení float: left/right pro lichý/sudý snímek.
+ * Nastavení změny velikosti snímku po najetí myší.
+ * Nastavení odsazení textu od snímků.
+*/
+#about {
+    background-color: #f7f7f7;
+    padding: 50px 0;
+}
+
+#about img {
+    border-radius: 5px;
+    width: 40%;
+    height: auto;
+    transition: 0.5s;
+    margin-bottom: 40px;
+}
+
+/* Změna velikosti obrázku při najetí myši. */
+#about img:hover {
+    width: 50%;
+    height: auto;
+}
+
+/* Nastavení float left pro liché obrázky a odsazení vpravo. */
+.about-item:nth-child(odd) > img{
+    float: left;
+    margin-right: 80px;
+}
+
+/* Nastavení float right pro sudů obrázky a odsazení vlevo. */
+.about-item:nth-child(even) > img {
+    float: right;
+    margin-right: 0;
+    margin-left: 80px;
+}
+
+/* Zarovnání textu do bloku. */
+.about-item > p {
+    text-align: justify;
+}
+
+.about-item > h2 {
+    margin-top: 40px;
+}
+
+/* Změna odsazení zhora nadpisu h2 pro první výskyt about-item. */
+.about-item:nth-of-type(1) > h2 {
+    margin-top: 20px;
+}
+
+.about-item h2 {
+    font-size: 32px;
+    margin-bottom: 40px;
+}
+/** Konec nastavení sekce about */
+
+/*
+ * Nastavení sekce team 
+ * Nastavení rozložení karet na stránce pomocí grid.
+ * Nastavení písma nadpisu a jeho rozložení na stránce (zabírá všechny 4 sloupce grid).
+ * Nastavení stínu karty.
+ * Nastavení reakce na najetí myší na kartu.
+ */
+
+/*
+   Rozdělení stránky na 4 sloupce.
+   Sloupcee zabírají velikost 1fr (rovnoměrně rozložená velikost stránky na sloupce (započteny i mezeryú.
+   column-gap: mezery mezi sloupci.
+*/
+#team > div{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 20px;
+    height: 100%;
+}
+
+/* 
+   Nastavení nadpisu.
+   Nadpis velkými písmeny a vystředěn.
+   Nadpis zabírá obsah sloupců 1 až 4.
+*/
+#team h2 {
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 40px;
+    grid-column-start: 1;
+    grid-column-end: 5;
+}
+
+/* 
+   Nastavení karty.
+   Nastavení stínu karty (RGB: black, průhlednost: 0.4).
+   Nastavení zaoblení.
+ */
+.team-card {
+    width: 100%;
+    box-shadow: 0 4px 10px 0 rgba(0,0,0,0.4);
+    transition: 0.5s;
+    border-radius: 5px;
+}
+
+/*
+   Změny barvy stínu po najetí myší na kartu.
+ */
+.team-card:hover {
+    box-shadow: 0 8px 16px 0 steelblue;
+}
+
+/* Změna barvy nadpisu po najetí myší na kartu */
+.team-card:hover h3{
+    color:steelblue;
+}
+
+.team-card img {
+    width: 100%;
+    border-radius: 5px 5px 0 0;
+}
+
+.team-card h3, h4, p {
+    text-align: center;
+}
+
+.team-card h3 {
+    margin-bottom: 10px;
+}
+
+.team-card p {
+    margin-top: 5px;
+}
+
+.team-card h4 {
+    color: #898989;
+    font-weight: bold;
+    margin-top: 0;
+}
+
+.team-card p {
+    font-size: 14px;
+    color: #bfbfbf;
+    padding: 0 5px;
+}
+/** Konec nastavení sekce team */
+
+/*
+ * Nastavení sekce stats
+ * Nastavení rozložení stránky pomocí grid.
+ * Nastavení pozadí karty.
+ * Reakce na najetí na kartu.
+ * Umístnění ikony na kartě. 
+ * Hranice oddělující sekce.
+ */
+
+/* Hranice oddělující sekce */
+#stats {
+    border: none;
+    border-top: 1px dashed black;
+}
+
+/*
+   Rozložení stránky pomocí grid na 7 sloupců.
+   Liché sloupce slouží pro flexibilní mezeru (nejmenší velikost 20px, největěí 1fr (přizpůsobuje rozložení dle volného prostoru).
+   Sudé sloupce slouží jako karty.
+   Karty jsou vystředěny.
+ */
+#stats > div{
+    display: grid;
+    grid-template-columns: minmax(20px, 1fr) minmax(220px, 300px) minmax(20px, 1fr) minmax(220px, 300px) minmax(20px, 1fr) minmax(220px, 300px) minmax(20px, 1fr);
+    justify-content: center;
+    /*position: relative;*/
+}
+
+.stats-card {
+    background-color: #4d4d4d;
+    border-radius: 5px;
+    margin-top: 60px;
+}
+
+.stats-card:hover {
+    background-color: steelblue;
+}
+
+/* Přidělení sloupců jednotlivým kartám */
+.stats-card:nth-of-type(1) {
+    grid-column-start: 2;
+}
+
+.stats-card:nth-of-type(2) {
+    grid-column-start: 4;
+}
+
+.stats-card:nth-of-type(3) {
+    grid-column-start: 6;
+}
+/* ------------------------------------- */
+
+.stats-card p, .stats-card h3 {
+    text-align: center;
+}
+
+.stats-card h3 {
+    color: white;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+.stats-card p {
+    color: #bfbfbf;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+/* 
+   Umístnění ikony v kartě.
+   Posunutí vůči horní hraně o 26px (1/2 ikony = 16px, padding = 10px).
+   Posunutí vůči levé hraně o 50% - 26px (vystředění).
+   Nastavení pozadí a barvy.
+   Nastavení vyplnění.
+ */
+.stats-card i {
+    font-size: 32px;
+    position: relative;
+    left: calc(50% - 26px);
+    top: -26px;
+    color: steelblue;
+    background-color: white;
+    border-radius: 50%;
+    padding: 10px;
+}
+/** Konec nastavení sekce stats */
+
+/*
+* Nastavení sekce price
+* Nastavení tabulky.
+* Změna pozadí tabulky po najetí.
+* Řádky tabulky oddělený čarou.
+* Nastavení tlačítka tabulku.
+* Změna pozadí tlačítka po najetí myši.
+*/
+#price {
+    background-color: #f7f7f7;
+    padding: 40px 0;
+}
+
+#price h2 {
+    font-size: 32px;
+    text-align: center;
+}
+
+/*
+   Vystředění tablky.
+   Nastavení mezer mezi buňkami. 20px mezi řádky, 1px mezi sloupci.
+ */
+#price table {
+    width: 80%;
+    margin: auto;
+    border-spacing: 1px 20px
+}
+
+/* Nastavení hranice mezi řádky */
+#price td {
+    border-top: 1px dotted steelblue;
+    border-bottom: 1px dotted steelblue;
+}
+
+#price td {
+    padding-right:20px;   
+}
+  
+#price td:first-child {
+    padding-left:20px;
+}
+
+#price th {
+    text-align: left; 
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-weight: bold;
+}
+
+#price th:nth-of-type(1), #price th:nth-of-type(2) { 
+    padding-left:20px;  
+}
+
+#price table li, #price td {
+    color: #898989;
+}
+
+/*
+   Nastavení pro první výskyt značky v td tabulky.
+   Nastavení stylu textu.
+   Posun vůči levé hraně o -20px pro zarovnání s tečkou listu.
+   Vypnutí tečky listu.
+ */
+#price td li:nth-of-type(1){
+    position: relative;
+    color: #898989;
+    font-weight: bold;
+    list-style: none;
+    left: -20px;
+}
+
+/* Změna pozadí řádku tabulky po najetí myší (s vyjímkou řádku hlavičky). */
+#price tr:hover:not(thead tr) {
+    background-color: white;
+}
+
+#price button {
+    padding: 20px;
+    background: none;
+    border-radius: 5px;
+    border: 1px solid steelblue;
+    background-color: #f7f7f7;
+}
+
+/* Změna pozadí tlačítka po najetí myší na tlačítko */
+#price button:hover{
+    background-color: steelblue;
+    color: white;
+}
+
+/* Změna pozadí řádku po najetí myší na tlačítko */
+#price button:hover tr{
+    background-color: white;
+}
+
+#price td:nth-of-type(3){
+    color: #898989;
+}
+/** Konec nastavení sekce price */
+
+/*
+ * Nastavení sekce refs 
+ * Rozložení stránky pomocí grid na dva sloupce.
+ * Vytvoření karty a nastavení pozadí.
+ * Vytvoření a umístnění uvozovek.
+ * Vytvoření trojúhelníku.
+ * Úprava snímku.
+ * Reakce na najetí na kartu.
+ */
+
+ /*
+    Rozdělení stránky na dva stejně velké sloupce a vystředění.
+  */
+#refs .content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+}
+
+/*
+   Nastavení maximální a minimální šířky karty.
+   Vystředění karty ve sloupci.
+ */
+.refs-card {
+    max-width: 400px;
+    min-width: 300px;
+    width: 65%;
+    margin: auto;
+    /*display: inline;*/
+}
+
+/*
+   Nastavení pozadí karty.
+   Nastavení zaoblení karty.
+   Nastavení position relative pro následující práci s uvozovky a trojúhelníkem.
+   Nastavení vycpávky.
+ */
+.refs-card blockquote {
+    background-color: #4d4d4d;
+    border-radius: 5px;
+    position: relative;
+    height: auto;
+    padding: 20px 50px 20px 0;
+}
+
+/* 
+   Nastavení textu v kartě.
+   Posun textu od levé hrany kvůli uvozovkám.
+ */
+.refs-card span {
+    position: relative;
+    color: white;
+    font-size: 14px;
+    left: 40px;
+    padding-right: 10px;
+}
+
+/* 
+   Nastavení uvozovek před text karty.
+   Nastavení barvy, velikosti a styl uvozovek.
+   Nastavení pozice uvozovek.
+ */
+.refs-card blockquote::before {
+    content: '"';
+    color: steelblue;
+    font-size: 90px;
+    font-family: 'PT Sans';
+    font-style: italic;
+    position: absolute;
+    top: -4px;
+}
+
+/*
+   Nastavení trojúhelníku pod kartou.
+   Nastavení pozice (pod kartou, mírně vpravo).
+   Nastavení velikosti a barvy ohraničení (pravá strana průhledná pro vytvoření trojúhelníku).
+ */
+.refs-card blockquote::after {
+    content:'';
+    position: absolute;
+    top: 100%;
+    left: 40px;
+    margin: 0 auto;
+    width: 0;
+    height: 0;
+    border-top: solid 20px #4d4d4d;
+    border-right: solid 20px transparent;
+}
+
+/*
+   Reakce na najetí na kartu: změna barvy karty.
+ */
+.refs-card blockquote:hover {
+    background-color: steelblue;
+}
+
+/*
+   Reakce na najetí na kartu: změna barvy trojůhelníku.
+ */
+.refs-card blockquote:hover::after {
+    border-top: solid 20px steelblue;
+}
+
+/*
+   Reakce na najetí na kartu: změna barvy uvozovek.
+ */
+.refs-card blockquote:hover::before {
+    color: white;
+}
+
+/*
+   Reakce na najetí na kartu: změna barvy nadpisu h3.
+ */
+.refs-card blockquote:hover + figure h3 {
+    color: steelblue;
+}
+
+/*
+   Nastavení nadpisu pod kartou.
+   Nastavení stylu textu.
+   Nastavení vycpávky.
+   Vystředění pomocí vertical-cell v display table-cell.
+ */
+.refs-card blockquote + figure h3{
+    font-size: 14px;
+    height: 60px;
+    vertical-align: middle;
+    display:table-cell;
+    padding-left: 20px;
+    color: #898989;
+    font-weight: normal;
+}
+
+/* Nastavení velikosti obrázku a jeho zaoblení. */
+.refs-card figure img {
+    width: 60px;
+    border-radius: 50%;
+    float: left;
+}
+
+.refs-card figure{
+    padding-top: 20px;
+    padding-left: 10px;
+}
+/** Konec nastavení sekce refs */
+
+/*
+ * Nastavení sekce contact 
+ * Rozložení stránky.
+ * Rozložení buňěk formuláře.
+ * Barvy formuláře při správném/špatném vyplnění.
+ * Velikost mapy.
+ * Rozdělení sekcí čarou.
+ */
+
+/*
+   Rozdělení sekce čarou.
+ */
+#contact {
+    border: none;
+    border-top: 1px dashed black;
+}
+
+/*
+   Rozdělení stránky na dva stejné sloupce pomocí grid.
+   Přidání mezery mezi sloupce 20px.
+ */
+#contact .content {
+    height: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 20px;
+}
+
+/* Umístnění nadpisu přes oba sloupce a nastavení stylu textu. */
+#contact h2 {
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 40px;
+    grid-column-start: 1;
+    grid-column-end: 5;
+    margin-top: 80px;
+    margin-bottom: 40px;
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+/* Nastavení velikosti mapy */
+#map {
+    height: 400px;
+}
+
+/* 
+   Rozdělení sloupce s formuláři do dvou sloupců pomocí grid.
+   Nastavení mezery mezi sloupci a odsazení.
+ */
+#contact form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin: 20px 0;
+    margin-right: 20px;
+}
+
+/* Nastavení formuláře přes oba sloupce */
+#contact-subject {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+#contact-message {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+/* ------------------------------------ */
+
+/* 
+   Nastavení tlačítka přes oba sloupce.
+   Vystředění tlačítka ve sloupcích.
+   Nastavení velikosti tlačítka.
+   Nastavení pozadí tlačítka.
+ */
+#contact-submit {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    width: 50%;
+    margin: 0 auto;
+    background-color: steelblue;
+    color: white;
+}
+
+/* Změna barvy tlačítka po najetí myší. */
+#contact-submit:hover {
+    background-color: green;
+    border-color: green;
+}
+
+/* 
+   Nastavení vstupních formulářů.
+   Vypnutí základního ohraničení formuláře.
+   Nastavení ohraničení a barvy.
+   Nastavení barvy ohraničení zakliknutého formuláře.
+ */
+#contact form input, #contact form textarea{
+    padding: 10px;
+    border:none;
+    border: 1px solid;
+    border-radius: 5px;
+    border-color: steelblue;
+    outline-color: green;
+}
+
+/*
+   Nastavení barvy ohraničení formuláře pro validní hodnotu.
+ */
+#contact form input:valid:not(#contact-submit), #contact form textarea:valid{
+    color: steelblue;
+}
+
+/*
+   Nastavení barvy ohraničení formuláře pro nevalidní hodnotu.
+ */
+#contact form input:invalid, #contact form textarea:invalid{
+    color: red;
+}
+/** Konec nastavení contact */
+
+/*
+ * Nastavení sekce footer 
+ * Nastavení pozadí.
+ * Nastavení stylu textu.
+ * Nastavení rozložení pomocí float.
+ */
+#footer {
+    background-color: black;
+    padding: 40px 0;
+    color: #898989;
+    font-size: 14px;
+}
+
+#footer a {
+    float: right;
+}
+/** Konec nastavení sekce footer */
